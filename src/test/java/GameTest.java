@@ -19,16 +19,16 @@ public class GameTest {
 
     @Test
     void throwExceptionWhenInputIsNull() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            game.guess(null);
-        });
+        assertIllegalArgument(null);
     }
 
     @Test
     void throwExceptinoWhenInputLengthIsUnmatched() {
-        String guessNumber;
+        assertIllegalArgument("12");
+    }
+
+    private void assertIllegalArgument(String guessNumber) {
         try {
-            guessNumber = "12";
             game.guess(guessNumber);
             fail();
         } catch (IllegalArgumentException e) {
