@@ -32,11 +32,15 @@ public class GameTest {
         game.question = "123";
         GuessResult result = game.guess("123");
 
+        boolean solved = true;
+        int strikes = 3;
+        int balls = 0;
+
         //JUnit 5 + AssertJ
         assertThat(result).isNotNull();
-        assertThat(result.isSolved()).isEqualTo(true);
-        assertThat(result.getStrikes()).isEqualTo(3);
-        assertThat(result.getBalls()).isEqualTo(0);
+        assertThat(result.isSolved()).isEqualTo(solved);
+        assertThat(result.getStrikes()).isEqualTo(strikes);
+        assertThat(result.getBalls()).isEqualTo(balls);
     }
 
     @Test
@@ -44,10 +48,14 @@ public class GameTest {
         game.question = "123";
         GuessResult result = game.guess("456");
 
+        boolean solved = false;
+        int strikes = 0;
+        int balls = 0;
+
         assertThat(result).isNotNull();
-        assertThat(result.isSolved()).isEqualTo(false);
-        assertThat(result.getStrikes()).isEqualTo(0);
-        assertThat(result.getBalls()).isEqualTo(0);
+        assertThat(result.isSolved()).isEqualTo(solved);
+        assertThat(result.getStrikes()).isEqualTo(strikes);
+        assertThat(result.getBalls()).isEqualTo(balls);
     }
 
     private void assertIllegalArgument(String guessNumber) {
