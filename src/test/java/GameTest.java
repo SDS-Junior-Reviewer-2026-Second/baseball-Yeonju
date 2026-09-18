@@ -36,11 +36,7 @@ public class GameTest {
         int strikes = 3;
         int balls = 0;
 
-        //JUnit 5 + AssertJ
-        assertThat(result).isNotNull();
-        assertThat(result.isSolved()).isEqualTo(solved);
-        assertThat(result.getStrikes()).isEqualTo(strikes);
-        assertThat(result.getBalls()).isEqualTo(balls);
+        assertMatchedNumber(result, solved, strikes, balls);
     }
 
     @Test
@@ -52,6 +48,10 @@ public class GameTest {
         int strikes = 0;
         int balls = 0;
 
+        assertMatchedNumber(result, solved, strikes, balls);
+    }
+
+    private void assertMatchedNumber(GuessResult result, boolean solved, int strikes, int balls) {
         assertThat(result).isNotNull();
         assertThat(result.isSolved()).isEqualTo(solved);
         assertThat(result.getStrikes()).isEqualTo(strikes);
