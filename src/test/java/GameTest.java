@@ -17,7 +17,8 @@ public class GameTest {
         assertNotNull(game);
     }
 
-    @Test void throwExceptionWhenInputIsNull() {
+    @Test
+    void throwExceptionWhenInputIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
             game.guess(null);
         });
@@ -25,13 +26,15 @@ public class GameTest {
 
     @Test
     void throwExceptinoWhenInputLengthIsUnmatched() {
+        String guessNumber;
         try {
-            game.guess("12");
+            guessNumber = "12";
+            game.guess(guessNumber);
             fail();
-        }
-        catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
 
         }
     }
+
 
 }
