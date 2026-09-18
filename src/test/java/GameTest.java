@@ -34,9 +34,9 @@ public class GameTest {
 
         //JUnit 5 + AssertJ
         assertThat(result).isNotNull();
-        assertThat(result.solved).isEqualTo(true);
-        assertThat(result.strikes).isEqualTo(3);
-        assertThat(result.balls).isEqualTo(0);
+        assertThat(result.isSolved()).isEqualTo(true);
+        assertThat(result.getStrikes()).isEqualTo(3);
+        assertThat(result.getBalls()).isEqualTo(0);
     }
 
     private void assertIllegalArgument(String guessNumber) {
